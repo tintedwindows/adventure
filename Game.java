@@ -1,519 +1,117 @@
-import java.util.Scanner;
-import java.util.LinkedList;
+package jonik;
 
-public class Game {
+import java.util.*;
 
-	protected Scanner scanner;
-	protected PlayerInterpreter interpreter;
-	protected Player player;
-	
-	public Game() {
+public class jonik {
 
-		this(null);
-	}
-	public Game(java.io.File save) {
-	
-		// Parse room from file
-		//Room startingRoom = Map.njit();
-		//Room startingRoom = Map.mission();
-		this.scanner = new Scanner(System.in);
-
-		Room startingRoom = chooseLevel();
-
-		this.interpreter = new PlayerInterpreter();
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		Scanner c = new Scanner(System.in);
+		Scanner d = new Scanner(System.in);
+		Scanner e = new Scanner(System.in);
+							
+		System.out.println("You arise to see a hooded figure standing above you at the foot of your bed");
+		System.out.println("'There will be a dreadful attack on the town, an evil wind will come and wipe");
+		System.out.println("out exhistence as we know it.' he says. ");
+		System.out.println(" ");
+		System.out.println("He hands you a dagger wrapped in an old cloth.");
+		System.out.println(" ");
+		System.out.println("'It's yours to keep, a gift for my intrusion.  I am Willeck, a young mage who");
+		System.out.println("just so happened to witness you performing a good deed. My organization likes those sort of things..' ");
+		//
+		//I want to add a question here..... to ask who they work for.
+		//my organization is to remain anonymous for now unless you choose to fight with me right now.
+		//
+		//fight for who? why? what are you after?
+		//
+		System.out.println(" ");
+		System.out.println("I'm in search of a book that fortells how to beat this evil and save the land.");
+		System.out.println("Will you join me on this quest?\n\nOptions: \n1:Yes I suppose\n2:Get the hell out of my house!");
 		
-		// Parse inventory from file
-		LinkedList<Item> items = new LinkedList<Item>();
-		if(items != null) {
-			this.player = new Player(startingRoom, items);
-		}
-		else {
-			this.player = new Player(startingRoom);
-		}
-	}
-	private Room chooseLevel() {
-		ItemWatchMenu menu = new ItemWatchMenu("Choose a level from the options to below: \n");
+		int a = s.nextInt();
 		
-		ItemWatchMenu m1 = new ItemWatchMenu("Dunnet");
-		ItemWatchMenu m2 = new ItemWatchMenu("NJIT");
-		ItemWatchMenu m3 = new ItemWatchMenu("Spy Mission");
-		ItemWatchMenu m4 = new ItemWatchMenu("Demo");
+		switch (a) {
+		case 1:
+			System.out.println("'Let us leave at once, the villiage is being invaded as we speak.  Gather a bedroll and supplies.");
+			System.out.println("it's going to be a long journey....' ");
+			System.out.println(" ");
+			System.out.println("As you run out of the house you see an army of ");
+			System.out.println("skeletal warriors marching their way through the once quiet town of your birth.  ");
+			System.out.println("Holding back the rage from inside you, you follow Willeck into the darkness and ");
+			System.out.println("disapeer to fight another day...");
+			System.out.println(" ");
+			System.out.println("You come across an Inn. Willeck decides to pay for the night and you get adjoining rooms.");
+			System.out.println("During the night you cannot sleep. Haunted by the thought of your town being attacked ");
+			System.out.println(" ");
+			System.out.println("Just then you jolt up from out of a dream..... You were dreaming about Zombies, weren't you?");
+			System.out.println(".... ");
+			System.out.println("  .....");
+			System.out.println("A Zombie moans out loud, You're not dreaming!!!!  The Inn has been compromised, Get outta there!");
+			System.out.println("Willek awakens but before he can get to his blade a Zombie busts through the door and slices Willeck in half!!");
+			System.out.println("Willeck begs for you to take the dagger. As you grab it you run out of the house and into the street.");
+			System.out.println("You look around at the chaos unfolding before your eyes.  You look in both directions...");
+			System.out.println("You can only go East or North East.  Both look the same from here. \nOptions: \n1: East\n2: North East");
+			break;
+			
+			int b = s.nextInt();
+			
+			switch (b) {
+			case 1:
+				System.out.println("you die game over.");
+				System.exit (b);
+				break;
+			}
 
-		//menu.add(m1);
-		//menu.add(m2);
-		menu.add(m3);
-		menu.add(m4);
-
-		System.out.println(menu.toString());
-
-		int choice = 0;
-		while(true) {
-			System.out.print("> ");
-			String input = this.scanner.nextLine();
-			try {
-				choice = Integer.parseInt(input) - 1;
-			}
-			catch(Exception e) {
-				System.out.println("Invalid selection.");
-				continue;
-			}
-			if(choice > menu.count() || choice < 0) {
-				System.out.println("Invalid selection.");
-				continue;
-			}
-			switch(choice) {
-				/*case 0:
-					return Map.level1();
-				case 1:
-					return Map.njit();
-				*/case 0:
-					return Map.mission();
-				case 1:
-					return Map.demo();
-				default:
-					System.out.println("Invalid selection.");
-					continue;
-			}
+		case 2:
+			System.out.println("Verry well... Willeck dissapears down the hall and is swept up into the shadows. ");
+			System.out.println("You jump out of bed to chase her but she is already gone, the silence is intense... nothing.");
+			System.out.println("You go back to sleep but are awakened to screams from outside.  As you run over to the door");
+			System.out.println("You can see that a skeletal mage is blasting fireballs into your neighbors lawn.  Oden is ");
+			System.out.println("being attacked!!!!  You grab whatever you can and run outside.  A Skeletal Warrior swings his ");
+			System.out.println("blood drenched sword at you.  You can feel the gust of wind from the blade almost slicing your ");
+			System.out.println("neck wide open.  You dodge it, and don't hestitate to dive into safety.  The Skeletal Warrior");
+			System.out.println("is out to hunt you....  As he charges towards you at an alarming speed you notice Willeck's dead");
+			System.out.println("body lying in the street.  What do you do?\n\nOptions \n1: Punch him. \n2: run away");
+			break;
+			//
+			//
+			//
+			//
+			//
+			//
+			//
+			
 		}
-	}
-	public void start() throws NullPointerException {
-
-		try {
-		String input = "";
-		while(input.compareTo("quit") != 0) {
-			System.out.print("> ");
-			input = this.scanner.nextLine();
-			Action a = this.interpreter.interpretString(input);
-			switch(a.type()) {
-				case TYPE_DIRECTIONAL:
-					move(a);
-					break;
-				case TYPE_HASDIRECTOBJECT:
-					switch(a) {
-						case ActionPickUp: {
-							Item o = a.directObject();
-							Item container = null;
-							if(this.player.currentRoom.hasItem(o)) {
-								if(o instanceof Holdable) {
-									System.out.println("Taken.");
-									this.player.currentRoom.remove(o);
-									this.player.pickup(o);
-								}
-								else {
-									System.out.println("You cannot pick up this item.");
-								}
-							}
-							else if((container = containerForItem(o)) != null) {
-								
-								System.out.println("Taken.");
-								((Hostable)container).uninstall(o);
-								this.player.pickup(o);
-							}
-							else if(this.player.hasItem(o)) {
-								System.out.println("You already have that item in your inventory.");
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionBreak: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Destroyable) {
-									System.out.println("Smashed.");
-									((Destroyable)item).destroy();
-									item.setDescription("broken " + item.toString());
-									item.setDetailDescription("broken " + item.detailDescription());
-									if(((Destroyable)item).disappears()) {
-										this.player.drop(item);
-										this.player.currentRoom.remove(item);
-									}
-
-									if(item instanceof Hostable) {
-										this.player.currentRoom.putItem(((Hostable)item).installedItem());
-										((Hostable)item).uninstall(((Hostable)item).installedItem());
-									}
-								}
-								else {
-									System.out.println("You cannot break this item.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionInspect: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Inspectable) {
-									((Inspectable)item).inspect();
-								}
-								else {
-									System.out.println("You cannot inspect this item.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionDrop: {
-							Item item = a.directObject();
-							if(this.player.hasItem(item)) {
-								if(item instanceof Holdable) {
-									System.out.println("Dropped.");
-									this.player.drop(item);
-									this.player.currentRoom.putItem(item);
-								}
-								else {
-									System.out.println("You cannot drop this item.");
-								}
-							}
-							else {
-								System.out.println("You don't have that item to drop.");
-							}
-							if(this.player.currentRoom instanceof RoomRequiredItem) {
-								RoomRequiredItem r = (RoomRequiredItem)this.player.currentRoom;
-								r.playerDidDropRequiredItem();
-							}
-							break;
-						}
-						case ActionThrow: {
-							Item item = a.directObject();
-							if(this.player.hasItem(item)) {
-								if(item instanceof Chuckable) {
-									System.out.println("Thrown.");
-									((Chuckable)item).chuck();
-									this.player.drop(item);
-									this.player.currentRoom.putItem(item);
-								}
-								else {
-									System.out.println("You cannot throw this item.");
-								}
-							}
-							else {
-								System.out.println("You don't have that item to throw.");
-							}
-							break;
-						}
-						case ActionShake: {
-				
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Shakeable) {
-									((Shakeable)item).shake();
-									if(((Shakeable)item).deadly()) {
-										this.player.die();
-									}
-								}
-								else {
-									System.out.println("I don't know how to do that.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionEnable: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Startable) {
-									System.out.println("Done.");
-									((Startable)item).start();
-								}
-								else {
-									System.out.println("I don't know how to do that.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-
-						}
-						case ActionPush: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Pushable) {
-									((Pushable)item).push();
-									if(item.relatedRoom() instanceof RoomElevator) { // player is next to an elevator
-										((RoomElevator)item.relatedRoom()).call(this.player.currentRoom);
-									}
-									else if(this.player.currentRoom instanceof RoomElevator) { // player is in an elevator
-										((RoomElevator)this.player.currentRoom).call(Integer.parseInt(item.getAliases()[0])-1);
-									}
-									else {
-										// for teleportation machine
-										this.player.move(item.relatedRoom());
-									}
-								}
-								else {
-									System.out.println("Nothing happens.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionEat: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item) || this.player.hasItem(item)) {
-								if(item instanceof Edible) {
-									((Edible)item).eat();
-								}
-								else {
-									if(item instanceof Holdable) {
-										System.out.println("As you forcefully shove the " + a.directObject() + " down your throat, you begin to choke.");
-										this.player.die();
-									}
-									else {
-										System.out.println("That cannot be consumed.");
-									}
-								}
-							}
-
-
-							break;
-
-						}
-
-						case ActionWear: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item)) {
-								if(item instanceof Wearable) {
-									System.out.println("Worn.");
-									this.player.currentRoom.remove(item);
-									this.player.wearDisguise(item);
-								}
-								else {
-									System.out.println("You can not wear this item.");
-								}
-							}
-							else if(this.player.disguise() == item) {
-								System.out.println("You are already wearing that.");
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionKill: {
-							Item item = a.directObject();
-							if(this.player.currentRoom.hasItem(item)) {
-								if(item instanceof Killable) {
-									((Killable)item).kill();
-								}
-								else {
-									System.out.println("You cannot kill this.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionOpen: {
-							Item item = a.directObject();
-							if(this.player.hasItem(item) || this.player.currentRoom.hasItem(item)) {
-								if(item instanceof Openable) {
-									((Openable)item).open();
-								}
-								else {
-									System.out.println("You cannot open this.");
-								}
-							}
-							else {
-								System.out.println("I don't see that here.");
-							}
-							break;
-						}
-						case ActionDetonate: {
-							Item dynamite = a.directObject();
-							if(this.player.hasItem(dynamite) || this.player.currentRoom.hasItem(dynamite)) {
-								if(dynamite instanceof Explodable) {
-									if(this.player.currentRoom.isAdjacentToRoom(dynamite.relatedRoom())) {
-										((Explodable)dynamite).explode();
-									}
-									else {
-										System.out.println("There isn't anything to blow up here.");
-									}
-								}		
-								else {
-									System.out.println("That item is not an explosive.");
-								}	
-							}	
-							else {
-								System.out.println("You do not have that item in your inventory.");
-							}
-							break;
-						}
-
-					}
-				case TYPE_HASINDIRECTOBJECT:
-					switch(a) {
-						case ActionPut: {
-							Item itemToPut = a.directObject();
-							Item itemToBePutInto = a.indirectObject();
-							if(!this.player.hasItem(itemToPut)) {
-								System.out.println("You don't have that object in your inventory.");
-								break;
-							}
-							else if(itemToBePutInto == null) {
-								System.out.println("You must supply an indirect object.");
-								break;
-							}
-							else if(!this.player.currentRoom.hasItem(itemToBePutInto)) {
-								System.out.println("That object doesn't exist in this room.");
-								break;
-							}
-							else if(itemToBePutInto instanceof ItemMagicBox && !(itemToPut instanceof Valuable)) {
-								System.out.println("This item has no value--putting it in this " + itemToBePutInto + " will not score you any points.");
-							}
-							else if(!(itemToBePutInto instanceof Hostable) || !(itemToPut instanceof Installable)) {
-								System.out.println("You cannot put a " + itemToPut + " into this " + itemToBePutInto);
-							}
-							else {
-								System.out.println("Done.");
-								this.player.drop(itemToPut);
-								this.player.putItemInItem(itemToPut, itemToBePutInto);
-							}
-							break;
-						}
-						case ActionTake: {
-							Item contents = a.directObject();
-							Item container = a.indirectObject();
-							if(!this.player.currentRoom.hasItem(container)) {
-								System.out.println("I don't see that here.");
-							}
-							else if(!(container instanceof Hostable)) {
-								System.out.println("You can't have an item inside that.");
-							}		
-							else {
-								if(((Hostable)container).installedItem() == contents) {
-									((Hostable)container).uninstall(contents);
-									this.player.pickup(contents);
-									System.out.println("Taken.");
-								}	
-								else {
-									System.out.println("That item is not inside this " + container);
-								}
-							}
-							break;
-						}
-					}
-				case TYPE_HASNOOBJECT: {
-					switch(a) {
-						case ActionLook:
-							this.player.look();
-							break;
-						case ActionDig:
-							if(this.player.currentRoom instanceof RoomExcavatable) {
-								RoomExcavatable curr = (RoomExcavatable)this.player.currentRoom;
-								curr.dig();
-							}
-							else {
-								System.out.println("You are not allowed to dig here");
-							}
-
-							break;
-						case ActionClimb:
-							move(Action.ActionGoUp);
-							break;
-						case ActionJump:
-							move(Action.ActionGoDown);
-							break;
-						case ActionViewItems: 
-							LinkedList<Item> items = this.player.getItems();
-							if(this.player.disguise() != null) {
-								System.out.println("You are wearing a " + this.player.disguise() + ".");
-							}
-							if (items.size() == 0) {
-								System.out.println("You don't have any items.");
-							}
-							else {
-								for(Item item : this.player.getItems()) {
-									System.out.println("You have a " + item.detailDescription() + ".");
-								}
-							}
-							break;
-						case ActionSuicide:
-							this.player.die();
-							break;
-						case ActionHelp:
-							help();
-							break;	
-					}
-					break;
-					}
-				case TYPE_UNKNOWN: {
-					switch(a) {
-						case ActionPass: {
-							// intentionally blank
-							break;
-						}
-						case ActionError: {
-							System.out.println("I don't understand that.");
-							break;
-						}
-						case ActionUnknown: {
-							System.out.println("I don't understand that.");
-							break;
-						}
-					}
-					break;
-				}
-				default:
-					System.out.println("I don't understand that");
-					break; 
-				}
-			}
-		}catch(Exception n) {
-			System.out.println("I don't understand that \n\nException: \n" + n);
-			n.printStackTrace();
-			start();
-		}
-
-		System.out.println("Quitting game...");
-	}
-	private void move(Action a) {
-		this.player.move(a);
-	}
-	private Item containerForItem(Item item) {
-		for(Item i : this.player.currentRoom.items) {
-			if(i instanceof Hostable) {
-				if(item == ((Hostable)i).installedItem() && item.isVisible()) {
-					return i;
-				}	
-			}
-		}
-		return null;
-	}
-	private void help() {
-
-		System.out.println(" -- Text RPG Help Menu -- ");
 		
-		System.out.println("To view your current items: type \"inventory\"");
-		System.out.println("To travel in a direction like north, type \"Go North\"");
-		System.out.println("You can inspect an inspectable item by typing \"Inspect <item>\"");
+		System.out.println(c.nextLine());
+		
+		System.out.println("What is your favorite Oden song?");
+		
+		
+		System.out.println(c.nextLine());
+		
+		System.out.println("Where do you want to go?\n\n1:The Clever Skunk Tavern\n2:The Town\n3:Exit the game");
+		
+
+		int d1 = s.nextInt();
+		
+		switch(d1) {
+		case 1:
+			System.out.println("You listen to the music from the bards playing.");
+			System.out.println("as you drink your ale you notice the barkeep...");
+			System.out.println("Hilgard the barkeep has been living in the town");
+			System.out.println("of Oden for most of his life.  He is bound to ");
+			System.out.println("know a large list of tales.");
+			System.exit (d1);
+			break;
+		case 2:
+			System.out.println("What do you want to visit first in the town?");
+			break;
+		case 3:
+			System.exit (d1);
+			break;
+			
+		}
+			
+		}
 	}
-	public static void print(String s) {
-		/*
-		for(String line : s.split("\n")) {
-			int c = 0;
-			for(String word : line.split(" ")) {
-				System.out.print(word + " ");
-				c += word.length();
-				if(c > 80) {
-					System.out.println();
-					c = 0;
-				}
-			}
-			System.out.println();
-		}*/
-		System.out.println(s);
-	}
-}
